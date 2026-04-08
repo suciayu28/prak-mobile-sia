@@ -11,24 +11,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KaturiApps">
-        <activity
-            android:name=".pertemuan_3.ThirdResultAcitvity"
-            android:exported="false" />
-        <activity
-            android:name=".pertemuan_2.SecondActivity"
-            android:exported="false" />
+
+        <!-- MainActivity -->
         <activity
             android:name=".pertemuan_3.ThirdActivity"
             android:exported="true">
+        </activity>
+
+        <!-- FourthActivity -->
+        <activity
+            android:name=".pertemuan_4.FourthActivity"
+            android:exported="false" />
+
+        <!-- Activity lain -->
+        <activity
+            android:name=".pertemuan_3.ThirdResultAcitvity"
+            android:exported="false" />
+
+        <activity
+            android:name=".pertemuan_2.SecondActivity"
+            android:exported="false" />
+
+        <!-- Launcher (yang pertama dibuka) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+
     </application>
 
 </manifest>
