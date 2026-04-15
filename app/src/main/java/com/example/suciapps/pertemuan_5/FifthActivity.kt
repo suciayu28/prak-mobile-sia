@@ -1,4 +1,4 @@
-package com.example.katuriapps.pertemuan_5
+package com.example.suciapps.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.katuriapps.R
+import com.example.suciapps.R
 import com.google.android.material.appbar.AppBarLayout
 
 class FifthActivity : AppCompatActivity() {

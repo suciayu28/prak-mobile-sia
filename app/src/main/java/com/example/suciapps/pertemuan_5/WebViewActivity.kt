@@ -1,11 +1,11 @@
-package com.example.katuriapps.pertemuan_5
+package com.example.suciapps.pertemuan_5
 
 import android.os.Bundle
 import android.view.View
 import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import com.example.katuriapps.databinding.ActivityWebViewBinding
+import com.example.suciapps.databinding.ActivityWebViewBinding
 
 class WebViewActivity : AppCompatActivity() {
 

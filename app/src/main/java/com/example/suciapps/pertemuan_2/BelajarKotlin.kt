@@ -1,4 +1,4 @@
-package com.example.katuriapps.pertemuan_2
+package com.example.suciapps.pertemuan_2
 fun main(){
     println("Hai rekan-rekan....")
     println("Selamat datang di bahasa pemrograman kotlin")

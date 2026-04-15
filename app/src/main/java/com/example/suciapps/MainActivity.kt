@@ -1,10 +1,10 @@
-package com.example.katuriapps
+package com.example.suciapps
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.katuriapps.databinding.ActivityMainBinding
-import com.example.katuriapps.pertemuan_4.FourthActivity
+import com.example.suciapps.databinding.ActivityMainBinding
+import com.example.suciapps.pertemuan_4.FourthActivity
 
 class MainActivity : AppCompatActivity() {
 

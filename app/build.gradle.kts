@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.katuriapps"
+    namespace = "com.example.suciapps"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.katuriapps"
+        applicationId = "com.example.suciapps"
         minSdk = 29
         targetSdk = 36
         versionCode = 1

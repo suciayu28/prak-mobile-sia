@@ -1,4 +1,4 @@
-package com.example.katuriapps
+package com.example.suciapps
 
 import org.junit.Test
 

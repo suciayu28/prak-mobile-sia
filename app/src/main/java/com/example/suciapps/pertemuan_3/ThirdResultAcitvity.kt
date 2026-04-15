@@ -1,11 +1,11 @@
-package com.example.katuriapps.pertemuan_3
+package com.example.suciapps.pertemuan_3
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.katuriapps.R
+import com.example.suciapps.R
 
 class ThirdResultAcitvity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

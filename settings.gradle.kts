@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Katuri Apps"
+rootProject.name = "Suci Apps"
 include(":app")

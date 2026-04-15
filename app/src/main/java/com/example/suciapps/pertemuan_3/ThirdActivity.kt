@@ -1,4 +1,4 @@
-package com.example.katuriapps.pertemuan_3
+package com.example.suciapps.pertemuan_3
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.katuriapps.R
-import com.example.katuriapps.databinding.ActivityThirdBinding
+import com.example.suciapps.R
+import com.example.suciapps.databinding.ActivityThirdBinding
 
 class ThirdActivity : AppCompatActivity() {
     private lateinit var binding: ActivityThirdBinding

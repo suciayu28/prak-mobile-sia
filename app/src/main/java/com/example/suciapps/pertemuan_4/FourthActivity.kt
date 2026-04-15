@@ -1,11 +1,11 @@
-package com.example.katuriapps.pertemuan_4
+package com.example.suciapps.pertemuan_4
 
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.katuriapps.R
-import com.example.katuriapps.databinding.ActivityFourthBinding
+import com.example.suciapps.R
+import com.example.suciapps.databinding.ActivityFourthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
