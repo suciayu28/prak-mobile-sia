@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".pertemuan_5.FifthActivity">
-
     <!-- APP BAR -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -57,7 +56,6 @@
                 app:iconGravity="textStart"
                 app:iconPadding="8dp"
                 app:iconTint="@android:color/white"/>
-
 
             <!-- Tambahkan konten panjang supaya bisa di-scroll -->
             <TextView
