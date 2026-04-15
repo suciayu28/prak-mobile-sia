@@ -6,7 +6,6 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.katuriapps.R
 import com.example.katuriapps.databinding.ActivityFourthBinding
-import com.example.katuriapps.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -16,12 +15,18 @@ class FourthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.e("onCreate", "FourthActivity dibuat pertama kali")
-        setContentView(R.layout.activity_fourth)
 
         binding = ActivityFourthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // ambil data dari intent
+        setSupportActionBar(binding.toolbar)
+
+        supportActionBar?.apply {
+            title = "Fourth Activity"
+            setDisplayHomeAsUpEnabled(true)
+            setDisplayShowHomeEnabled(true)
+        }
+
         val name = intent.getStringExtra("name")
         val from = intent.getStringExtra("from")
         val age = intent.getIntExtra("age", 0)
@@ -31,7 +36,7 @@ class FourthActivity : AppCompatActivity() {
         val btnBack: Button = findViewById(R.id.btnBack)
 
         btnBack.setOnClickListener {
-            finish() // kembali ke MainActivity
+            finish()
         }
 
         binding.btnShowSnackbar.setOnClickListener {
@@ -58,13 +63,13 @@ class FourthActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.e("onStart", "onStart: FourthActivity terlihat di layar")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e("onDestroy", "FourthActivity dihapus dari stack")
+    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }
