@@ -19,7 +19,7 @@
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="Katuri Apps"
+        android:text="Suci Apps"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold" />
