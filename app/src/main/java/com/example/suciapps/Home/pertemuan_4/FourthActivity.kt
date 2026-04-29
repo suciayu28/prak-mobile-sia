@@ -1,7 +1,8 @@
-package com.example.suciapps.pertemuan_4
+package com.example.suciapps.Home.pertemuan_4
 
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.suciapps.R
@@ -63,7 +64,7 @@ class FourthActivity : AppCompatActivity() {
         }
     }
 
-    override fun onOptionsItemSelected(item: android.view.MenuItem): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
                 onBackPressedDispatcher.onBackPressed()

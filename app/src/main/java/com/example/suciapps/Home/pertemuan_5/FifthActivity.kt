@@ -1,4 +1,4 @@
-package com.example.suciapps.pertemuan_5
+package com.example.suciapps.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,10 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.widget.NestedScrollView
 import com.example.suciapps.R
 import com.google.android.material.appbar.AppBarLayout
 
@@ -19,7 +21,7 @@ class FifthActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_fifth)
 
-        val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         supportActionBar?.apply {
@@ -49,7 +51,7 @@ class FifthActivity : AppCompatActivity() {
         // ✅ IMPROVISASI SCROLL (TAMBAHAN)
         // ==============================
         val appBar = findViewById<AppBarLayout>(R.id.appBar)
-        val scrollView = findViewById<androidx.core.widget.NestedScrollView>(R.id.scrollView)
+        val scrollView = findViewById<NestedScrollView>(R.id.scrollView)
 
         scrollView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
 

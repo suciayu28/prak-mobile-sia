@@ -6,7 +6,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.suciapps.databinding.ActivityMainBinding
-import com.example.suciapps.pertemuan_4.FourthActivity
+
+// Import Activity - Pastikan path ini sesuai dengan struktur folder projectmu
+import com.example.suciapps.Home.pertemuan_2.SecondActivity
+import com.example.suciapps.Home.pertemuan_3.ThirdActivity
+import com.example.suciapps.Home.pertemuan_4.FourthActivity
+import com.example.suciapps.Home.pertemuan_5.FifthActivity
+import com.example.suciapps.Home.pertemuan_7.SeventhActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,13 +21,35 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // 1. Inisialisasi View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Ambil SharedPreferences dengan nama yang sama seperti di AuthActivity
         val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
 
-        // Tombol ke FourthActivity (Kode lama kamu tetap dipertahankan)
+        // --- NAVIGASI TOMBOL PERTEMUAN ---
+
+        binding.btnP2.setOnClickListener {
+            startActivity(Intent(this, SecondActivity::class.java))
+        }
+
+        binding.btnP3.setOnClickListener {
+            startActivity(Intent(this, ThirdActivity::class.java))
+        }
+
+        binding.btnP4.setOnClickListener {
+            startActivity(Intent(this, FourthActivity::class.java))
+        }
+
+        binding.btnP5.setOnClickListener {
+            startActivity(Intent(this, FifthActivity::class.java))
+        }
+
+        binding.btnP7.setOnClickListener {
+            startActivity(Intent(this, SeventhActivity::class.java))
+        }
+
+        // Tombol khusus PCR (Info Kampus) dengan pengiriman Data Intent
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(this, FourthActivity::class.java)
             intent.putExtra("name", "Politeknik Caltex Riau")
@@ -30,25 +58,24 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        // --- FITUR LOGOUT (Sesuai Modul Gambar [3]) ---
+        // --- FITUR LOGOUT ---
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(this)
                 .setTitle("Logout")
                 .setMessage("Apakah Anda yakin ingin keluar?")
+                .setCancelable(false)
                 .setPositiveButton("Ya") { dialog, _ ->
-                    // 1. Ambil editor dan hapus semua data (isLogin & username)
+                    // Hapus session login
                     val editor = sharedPref.edit()
                     editor.clear()
                     editor.apply()
 
-                    // 2. Tutup dialog
                     dialog.dismiss()
 
-                    // 3. Pindah kembali ke AuthActivity (Halaman Login)
+                    // Pindah ke AuthActivity dan hapus tumpukan activity (Stack)
                     val intent = Intent(this, AuthActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
-
-                    // 4. Tutup MainActivity agar tidak bisa di-back
                     finish()
                 }
                 .setNegativeButton("Tidak") { dialog, _ ->
