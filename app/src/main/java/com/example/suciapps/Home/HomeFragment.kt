@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity // Tambahkan ini
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.suciapps.AuthActivity
 import com.example.suciapps.Home.pertemuan_2.SecondActivity
@@ -15,6 +15,8 @@ import com.example.suciapps.Home.pertemuan_3.ThirdActivity
 import com.example.suciapps.Home.pertemuan_4.FourthActivity
 import com.example.suciapps.Home.pertemuan_5.FifthActivity
 import com.example.suciapps.Home.pertemuan_7.SeventhActivity
+// Import untuk halaman baru Pertemuan 9
+import com.example.suciapps.Home.pertemuan_9.NinthActivity
 import com.example.suciapps.databinding.ActivityHomeFragmentBinding
 
 class HomeFragment : Fragment() {
@@ -33,15 +35,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // --- TAMBAHKAN LOGIKA TOOLBAR DI SINI (Sesuai Modul) ---
-        // Ini yang membuat Toolbar ungu muncul di atas Fragment
+        // Mengatur Toolbar
         (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "Home"
-        // ------------------------------------------------------
 
         val sharedPref = requireContext().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
 
-        // Listener Tombol
+        // --- Listener Klik Dashboard (CardView) ---
+
         binding.btnP2.setOnClickListener {
             startActivity(Intent(requireContext(), SecondActivity::class.java))
         }
@@ -58,6 +59,11 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), SeventhActivity::class.java))
         }
 
+        // Navigasi ke Pertemuan 9 (Sesuai ID CardView di XML)
+        binding.btnP9.setOnClickListener {
+            startActivity(Intent(requireContext(), NinthActivity::class.java))
+        }
+
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(requireContext(), FourthActivity::class.java).apply {
                 putExtra("name", "Politeknik Caltex Riau")
@@ -67,6 +73,7 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // Tombol Logout
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(requireContext())
                 .setTitle("Logout")

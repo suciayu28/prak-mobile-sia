@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA"
+    android:fitsSystemWindows="true">
+
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:background="@drawable/bg_header_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:navigationIconTint="@android:color/white"
+        app:subtitle="Just Try It - Navigation"
+        app:subtitleTextColor="#E0E0E0"
+        app:title="Pertemuan 9"
+        app:titleTextColor="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Email"
+                        app:startIconDrawable="@drawable/ic_edit">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordInputLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:hint="Password"
+                        app:endIconMode="password_toggle"
+                        app:startIconDrawable="@drawable/ic_lock">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#B53F6A"
+                        android:text="Login Ke Akun"
+                        android:textAllCaps="false"
+                        android:textStyle="bold"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_login" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="4dp"
+                android:text="Kategori Filter"
+                android:textStyle="bold"
+                android:textColor="#424242"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTerbaru"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Terbaru" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPenting"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Penting" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipBelumDibaca"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Belum Dibaca" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/edit_text_background"
+                android:hint="Masukkan Nama Anda"
+                android:paddingHorizontal="16dp"
+                android:inputType="text" />
+
+            <androidx.gridlayout.widget.GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:columnCount="3"
+                app:useDefaultMargins="true">
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Menu 1"
+                    android:textColor="#B53F6A"
+                    android:textSize="12sp"
+                    app:backgroundTint="#FFF0F5"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_add_circle"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#B53F6A"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Menu 2"
+                    android:textColor="#1976D2"
+                    android:textSize="12sp"
+                    app:backgroundTint="#E3F2FD"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_add_circle"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#1976D2"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Menu 3"
+                    android:textColor="#388E3C"
+                    android:textSize="12sp"
+                    app:backgroundTint="#E8F5E9"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_add_circle"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#388E3C"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Menu 4"
+                    android:textColor="#B53F6A"
+                    android:textSize="12sp"
+                    app:backgroundTint="#FFF0F5"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_add_circle"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#B53F6A"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Menu 5"
+                    android:textColor="#1976D2"
+                    android:textSize="12sp"
+                    app:backgroundTint="#E3F2FD"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_add_circle"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#1976D2"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+                <com.google.android.material.button.MaterialButton
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:text="Menu 6"
+                    android:textColor="#388E3C"
+                    android:textSize="12sp"
+                    app:backgroundTint="#E8F5E9"
+                    app:cornerRadius="20dp"
+                    app:icon="@drawable/ic_add_circle"
+                    app:iconGravity="top"
+                    app:iconSize="32dp"
+                    app:iconTint="#388E3C"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal" />
+
+            </androidx.gridlayout.widget.GridLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
