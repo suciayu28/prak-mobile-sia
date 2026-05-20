@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F0F2F5">
+
     <View
         android:id="@+id/background_header"
         android:layout_width="0dp"
@@ -13,14 +14,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
     <androidx.appcompat.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="?attr/actionBarSize"
-    android:background="#B53F6A"
-    app:elevation="8dp"
-    app:titleTextColor="@android:color/white"
-    app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#B53F6A"
+        app:elevation="8dp"
+        app:titleTextColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -187,6 +189,38 @@
                         android:orientation="vertical">
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="PCR" android:textColor="#455A64" android:textSize="26sp" android:textStyle="bold" />
                         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Info Kampus" android:textColor="#455A64" android:textSize="13sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/btnP10"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="3dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="#FFF9C4"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="P10"
+                            android:textColor="#FBC02D"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pertemuan 10"
+                            android:textColor="#FBC02D"
+                            android:textSize="13sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 

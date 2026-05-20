@@ -17,6 +17,7 @@ import com.example.suciapps.Home.pertemuan_5.FifthActivity
 import com.example.suciapps.Home.pertemuan_7.SeventhActivity
 // Import untuk halaman baru Pertemuan 9
 import com.example.suciapps.Home.pertemuan_9.NinthActivity
+import com.example.suciapps.Home.pertemuan_10.TenthActivity
 import com.example.suciapps.databinding.ActivityHomeFragmentBinding
 
 class HomeFragment : Fragment() {
@@ -63,6 +64,11 @@ class HomeFragment : Fragment() {
         binding.btnP9.setOnClickListener {
             startActivity(Intent(requireContext(), NinthActivity::class.java))
         }
+        // Tambahkan baris ini di dalam fungsi onViewCreated
+        binding.btnP10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(requireContext(), FourthActivity::class.java).apply {
@@ -72,6 +78,7 @@ class HomeFragment : Fragment() {
             }
             startActivity(intent)
         }
+
 
         // Tombol Logout
         binding.btnLogout.setOnClickListener {
