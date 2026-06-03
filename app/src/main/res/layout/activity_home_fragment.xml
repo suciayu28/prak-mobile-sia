@@ -28,8 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
         android:fillViewport="true">
 
         <LinearLayout
@@ -225,6 +225,15 @@
                 </com.google.android.material.card.MaterialCardView>
 
             </GridLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:padding="8dp"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@android:layout/simple_list_item_1" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogout"

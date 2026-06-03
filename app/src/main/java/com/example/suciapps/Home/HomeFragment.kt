@@ -6,10 +6,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.suciapps.AuthActivity
+import com.example.suciapps.Data.api.PhotoApiClient
 import com.example.suciapps.Home.pertemuan_2.SecondActivity
 import com.example.suciapps.Home.pertemuan_3.ThirdActivity
 import com.example.suciapps.Home.pertemuan_4.FourthActivity
@@ -18,7 +22,9 @@ import com.example.suciapps.Home.pertemuan_7.SeventhActivity
 // Import untuk halaman baru Pertemuan 9
 import com.example.suciapps.Home.pertemuan_9.NinthActivity
 import com.example.suciapps.Home.pertemuan_10.TenthActivity
+import com.example.suciapps.Home.photo.PhotoAdapter
 import com.example.suciapps.databinding.ActivityHomeFragmentBinding
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -79,6 +85,8 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // 🛠️ PANGGIL FUNGSI LOAD PHOTO DI SINI (Sesuai Modul Langkah 6)
+        loadPhoto()
 
         // Tombol Logout
         binding.btnLogout.setOnClickListener {
@@ -95,6 +103,30 @@ class HomeFragment : Fragment() {
                 }
                 .setNegativeButton("Tidak") { dialog, _ -> dialog.dismiss() }
                 .show()
+        }
+    }
+
+    // 🛠️ TAMBAHAN FUNGSI LOADPHOTO (Sesuai Modul Langkah 6)
+    private fun loadPhoto() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                // Pastikan PhotoApiClient dan PhotoAdapter sudah kamu buat sesuai modul pertemuan sebelumnya
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** List Tampil Vertical **/
+                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+                /** List Tampil Horizontal (Opsional jika ingin dipakai tinggal hapus tanda //) **/
+                // binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                /** List Tampil Grid (Opsional jika ingin dipakai tinggal hapus tanda //) **/
+                // binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
