@@ -1,13 +1,18 @@
 package com.example.suciapps.Message
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity // Tambahkan ini
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.suciapps.Message.tutorial.TutorialMessageActivity
 import com.example.suciapps.databinding.ActivityMessageFragmentBinding
-
+import  com.example.suciapps.R
 class MessageFragment : Fragment() {
     private var _binding: ActivityMessageFragmentBinding? = null
     private val binding get() = _binding!!
@@ -36,7 +41,7 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // --- TAMBAHKAN LOGIKA TOOLBAR & BACK DI SINI ---
+        // --- LOGIKA TOOLBAR & BACK ---
         val activity = requireActivity() as AppCompatActivity
         activity.setSupportActionBar(binding.toolbarMessage) // Pasang toolbar ke Activity
 
@@ -44,6 +49,9 @@ class MessageFragment : Fragment() {
             title = "Message" // Judul halaman
             setDisplayHomeAsUpEnabled(true) // Munculkan tombol panah back
         }
+
+        // Aktifkan Option Menu di Fragment (Perintah Modul Langkah 4)
+        setHasOptionsMenu(true)
 
         // Event klik untuk tombol back
         binding.toolbarMessage.setNavigationOnClickListener {
@@ -53,6 +61,26 @@ class MessageFragment : Fragment() {
         binding.listMessageItems.adapter = adapter
         // ----------------------------------------------
     }
+
+    // --- TAMBAHAN KODE DARI PERINTAH MODUL (onCreateOptionsMenu & onOptionsItemSelected) ---
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.message_toolbar_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_tutorial -> {
+                val intent = Intent(requireContext(), TutorialMessageActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    // -------------------------------------------------------------------------------------
 
     override fun onDestroyView() {
         super.onDestroyView()
