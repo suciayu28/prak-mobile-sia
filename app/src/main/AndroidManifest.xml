@@ -68,6 +68,11 @@
         <activity
             android:name=".Home.pertemuan_7.SeventhActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".Note.NoteFormActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

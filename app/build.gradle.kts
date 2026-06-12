@@ -1,12 +1,12 @@
 plugins {
     alias(libs.plugins.android.application)
+    // Mengaktifkan plugin KSP di modul aplikasi sesuai modul
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.example.suciapps"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.suciapps"
@@ -31,7 +31,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -47,13 +47,18 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation ("com.github.bumptech.glide:glide:4.16.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("com.tbuonomo:dotsindicator:5.1.0")
 
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
+    // Kumpulan pustaka Room Database versi 2.7.0 sesuai ketentuan modul
+    val room_version = "2.7.0"
+    implementation("androidx.room:room-runtime:$room_version")
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 }
