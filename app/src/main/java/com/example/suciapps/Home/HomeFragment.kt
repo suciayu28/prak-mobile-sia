@@ -19,9 +19,9 @@ import com.example.suciapps.Home.pertemuan_3.ThirdActivity
 import com.example.suciapps.Home.pertemuan_4.FourthActivity
 import com.example.suciapps.Home.pertemuan_5.FifthActivity
 import com.example.suciapps.Home.pertemuan_7.SeventhActivity
-// Import untuk halaman baru Pertemuan 9
 import com.example.suciapps.Home.pertemuan_9.NinthActivity
 import com.example.suciapps.Home.pertemuan_10.TenthActivity
+import com.example.suciapps.Home.pertemuan_13.ThirteenthActivity
 import com.example.suciapps.Home.photo.PhotoAdapter
 import com.example.suciapps.databinding.ActivityHomeFragmentBinding
 import kotlinx.coroutines.launch
@@ -76,6 +76,12 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // Klik untuk tombol Pertemuan 13
+        binding.btnP13.setOnClickListener {
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(requireContext(), FourthActivity::class.java).apply {
                 putExtra("name", "Politeknik Caltex Riau")
@@ -110,7 +116,6 @@ class HomeFragment : Fragment() {
     private fun loadPhoto() {
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                // Pastikan PhotoApiClient dan PhotoAdapter sudah kamu buat sesuai modul pertemuan sebelumnya
                 val photos = PhotoApiClient.apiService.getPhotos()
                 val adapter = PhotoAdapter(photos)
                 binding.rvGallery.adapter = adapter
