@@ -16,6 +16,7 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import com.example.suciapps.databinding.FragmentTabScanBinding
+import com.example.suciapps.utils.PermissionHelper
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
@@ -55,25 +56,20 @@ class TabScanFragment : Fragment() {
         return binding.root
     }
 
-    // Tambahan function onViewCreated sesuai modul
+    // Function onViewCreated Diperbarui Sesuai Modul (Menggunakan PermissionHelper)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-        if (hasCameraPermission()) {
-            startCamera()
+        if (!PermissionHelper.hasPermission(requireActivity(), Manifest.permission.CAMERA)) {
+            PermissionHelper.requestPermission(
+                permissionLauncher,
+                Manifest.permission.CAMERA
+            )
         } else {
-            permissionLauncher.launch(Manifest.permission.CAMERA)
+            startCamera()
         }
-    }
-
-    // Fungsi pembantu untuk cek izin kamera
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
     }
 
     // 🛠️ SUDAH DISESUAIKAN DENGAN ID XML KAMU (previewView & tvScanResult)

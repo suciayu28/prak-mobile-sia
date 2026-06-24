@@ -16,6 +16,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.example.suciapps.databinding.FragmentTabCaptureBinding
+import com.example.suciapps.utils.PermissionHelper
 import java.io.File
 
 class TabCaptureFragment : Fragment() {
@@ -51,24 +52,20 @@ class TabCaptureFragment : Fragment() {
         return binding.root
     }
 
-    // Function onViewCreated Sesuai Modul Langkah 4
+    // Function onViewCreated Diperbarui Sesuai Modul Langkah 4 (Menggunakan PermissionHelper)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnCapture.setOnClickListener {
-            if (hasCameraPermission()) {
-                openCamera()
+            if (!PermissionHelper.hasPermission(requireActivity(), Manifest.permission.CAMERA)) {
+                PermissionHelper.requestPermission(
+                    permissionLauncher,
+                    Manifest.permission.CAMERA
+                )
             } else {
-                permissionLauncher.launch(Manifest.permission.CAMERA)
+                openCamera()
             }
         }
-    }
-
-    private fun hasCameraPermission(): Boolean { //
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
     }
 
     private fun openCamera() { //
