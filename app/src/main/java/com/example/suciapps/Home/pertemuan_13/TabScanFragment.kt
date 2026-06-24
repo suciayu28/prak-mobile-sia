@@ -57,11 +57,13 @@ class TabScanFragment : Fragment() {
     }
 
     // Function onViewCreated Diperbarui Sesuai Modul (Menggunakan PermissionHelper)
+    @ExperimentalGetImage
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         cameraExecutor = Executors.newSingleThreadExecutor()
 
+        // Menyelaraskan logika dengan pemanggilan hasPermission & requestPermission
         if (!PermissionHelper.hasPermission(requireActivity(), Manifest.permission.CAMERA)) {
             PermissionHelper.requestPermission(
                 permissionLauncher,
@@ -139,7 +141,8 @@ class TabScanFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-        scanner?.close()
+        // Perbaikan: scanner diakses langsung tanpa tanda tanya (?) karena tipenya non-nullable
+        scanner.close()
         cameraExecutor.shutdown()
     }
 }
